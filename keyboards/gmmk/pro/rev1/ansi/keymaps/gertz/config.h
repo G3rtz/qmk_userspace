@@ -115,6 +115,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     //#undef ENABLE_RGB_MATRIX_SOLID_MULTISPLASH              // Single color pulses from muli-keys. All else black.
 #endif //RGB_MATRIX_ENABLE
 
+
+#define DYNAMIC_KEYMAP_LAYER_COUNT 5
 /*
 // Mouse Keys Accelerated Mode Definitions
 #define MOUSEKEY_DELAY 3               // Delay between pressing a movement key and cursor movement (default: 10)

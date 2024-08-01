@@ -27,7 +27,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define FORCE_NKRO
 
 // Set keyboard debounce time (originally 5ms, now 8ms to combat touchy switches)
-#define DEBOUNCE 8
+#define DEBOUNCE 5
 
 // Set TT to two taps
 #define TAPPING_TOGGLE 2
@@ -115,17 +115,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
     //#undef ENABLE_RGB_MATRIX_SOLID_MULTISPLASH              // Single color pulses from muli-keys. All else black.
 #endif //RGB_MATRIX_ENABLE
 
-// Add a layer for colemak  -- set "COLEMAK_LAYER_ENABLE = yes" in rules.mk to enable
-#if defined COLEMAK_LAYER_ENABLE
-    #ifdef GAME_ENABLE
-        #define DYNAMIC_KEYMAP_LAYER_COUNT 6
-        #define _COLEMAK 5
-    #else
-        #define DYNAMIC_KEYMAP_LAYER_COUNT 5
-        #define _COLEMAK 4
-    #endif //GAME_ENABLE
-#endif // COLEMAK_LAYER_ENABLE
 
+#define DYNAMIC_KEYMAP_LAYER_COUNT 5
 /*
 // Mouse Keys Accelerated Mode Definitions
 #define MOUSEKEY_DELAY 3               // Delay between pressing a movement key and cursor movement (default: 10)

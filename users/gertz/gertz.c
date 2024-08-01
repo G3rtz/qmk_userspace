@@ -447,43 +447,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t * record) {
         }
         break;
 
-        // DotCom domain macros
-    case DOTCOM:
-        if (record -> event.pressed) {
-            send_string(".com");
-        } else {
-            // when keycode is released
-        }
-        break;
-    case YAHOO:
-        if (record -> event.pressed) {
-            send_string("yahoo.com");
-        } else {
-            // when keycode is released
-        }
-        break;
-    case OUTLOOK:
-        if (record -> event.pressed) {
-            send_string("outlook.com");
-        } else {
-            // when keycode is released
-        }
-        break;
-    case GMAIL:
-        if (record -> event.pressed) {
-            send_string("gmail.com");
-        } else {
-            // when keycode is released
-        }
-        break;
-    case HOTMAIL:
-        if (record -> event.pressed) {
-            send_string("hotmail.com");
-        } else {
-            // when keycode is released
-        }
-        break;
-
         // Windows Key lockout
     case WINLOCK:
         if (record -> event.pressed) {

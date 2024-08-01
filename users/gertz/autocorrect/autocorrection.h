@@ -26,7 +26,7 @@
 
 #include "quantum.h"
 
-#include "gourdo1.h"
+#include "gertz.h"
 
 #ifdef __cplusplus
 extern "C" {

@@ -76,11 +76,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 
     [_FN1] = LAYOUT(
-        EE_CLR,  KC_MYCM, KC_WHOM, KC_CALC, KC_MSEL, KC_MPRV, KC_MNXT, KC_MPLY, KC_MSTP, KC_VOLD, KC_VOLU, KC_PSCR, KC_SCRL, KC_PAUS,           KC_SLEP,
+        EE_CLR,  DF(_MAC_BASE), KC_WHOM, KC_CALC, KC_MSEL, KC_MPRV, KC_MNXT, KC_MPLY, KC_MSTP, KC_VOLD, KC_VOLU, KC_PSCR, KC_SCRL, KC_PAUS,           KC_SLEP,
         PRNCONF, TG_CAPS, TG_PAD,  TG_ESC,  TG_DEL,  TG_TDCAP,TG_ENC,  TG_INS,TG_SPCMOD,TG_AUTOCR, _______, RGB_TOD, RGB_TOI, _______,           RGB_TOG,
         _______, RGB_SAD, RGB_VAI, RGB_SAI, NK_TOGG, _______, _______,   _______, _______, _______, KC_PAUS, SWAP_L,  SWAP_R,  QK_BOOT,           KC_HOME,
         KC_CAPS, RGB_HUD, RGB_VAD, RGB_HUI, _______, _______,   _______, _______, _______, LOCKPC,  _______, _______,          _______,           KC_END,
-        _______,          RGB_NITE,_______, _______, _______, QK_BOOT, KC_NUM,  TO(_MAC_BASE), _______, _______,  KC_CAD,           _______, RGB_MOD,  _______,
+        _______,          RGB_NITE,_______, _______, _______, QK_BOOT, KC_NUM,  DF(_MAC_BASE), _______, _______,  KC_CAD,           _______, RGB_MOD,  _______,
         _______, WINLOCK, _______,                            _______,                            _______, _______, _______, RGB_SPD, RGB_RMOD, RGB_SPI
     ),
 
@@ -119,11 +119,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_LCTL, KC_LOPT, KC_LCMD,                               KC_SPC,                             KC_RCMD, MO(_MAC_FN1), KC_ROPT,   KC_LEFT, KC_DOWN, KC_RGHT
     ),
     [_MAC_FN1] = LAYOUT(
-         KC_ESC,  KC_BRID, KC_BRIU, KC_MCTL,  KC_LPAD, RGB_VAD, RGB_VAI, KC_F7,   KC_F8,   KC_MRWD, KC_MPLY, KC_MFFD, KC_F12,  KC_EJCT,        RGB_TOG,
+         KC_ESC,  KC_BRID, DF(_BASE), KC_MCTL,  KC_LPAD, RGB_VAD, RGB_VAI, KC_F7,   KC_F8,   KC_MRWD, KC_MPLY, KC_MFFD, KC_F12,  KC_EJCT,        RGB_TOG,
         _______, _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______, _______, _______,           KC_PSCR,
         _______,  RGB_HUI, RGB_VAI, RGB_SAI, _______, _______, _______, _______, _______, _______, _______, _______,  _______, QK_BOOT,           _______,
         _______,  RGB_HUD, RGB_VAD, RGB_SAD, _______,   _______, _______, _______, _______, _______, _______, _______,           _______,           _______,
-        _______,           _______, _______, _______, _______, _______, NK_TOGG, TO(_BASE), _______, _______, _______,           _______, RGB_MOD,  RGB_TOG,
+        _______,           _______, _______, _______, _______, _______, NK_TOGG, DF(_BASE), _______, _______, _______,           _______, RGB_MOD,  RGB_TOG,
         _______,  _______, _______,                            _______,                            _______, _______,  _______, RGB_SPD, RGB_RMOD, RGB_SPI
     ),
 
@@ -162,7 +162,6 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
             timeout_update_threshold(clockwise);
             #endif
             break;
-            #ifdef GAME_ENABLE
         default:
             encoder_action_volume(clockwise); // Otherwise it just changes volume
             break;
@@ -173,10 +172,8 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
 }
 #endif // ENCODER_ENABLE && !ENCODER_DEFAULTACTIONS_ENABLE
 
+
 #ifdef RGB_MATRIX_ENABLE
-
-
-
 // Capslock, Scroll lock and Numlock indicator on Left side lights.
 bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
     if (get_rgb_nightmode()) rgb_matrix_set_color_all(RGB_OFF);

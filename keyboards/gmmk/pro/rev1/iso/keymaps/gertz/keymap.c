@@ -211,8 +211,15 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
     // CapsLock RGB setup
     if (led_state.caps_lock) {
         if (user_config.rgb_hilite_caps) {
-            for (uint8_t i = 0; i < ARRAY_SIZE(LED_LIST_LETTERS); i++) {
-                rgb_matrix_set_color(LED_LIST_LETTERS[i], RGB_CHARTREUSE);
+            if (user_config.rgb_english_caps) {
+                for (uint8_t i = 0; i < ARRAY_SIZE(LED_LIST_LETTERS); i++) {
+                    rgb_matrix_set_color(LED_LIST_LETTERS[i], RGB_CHARTREUSE);
+                }
+            }
+            else {
+                for (uint8_t i = 0; i < ARRAY_SIZE(LED_LIST_LETTERS_DE); i++) {
+                    rgb_matrix_set_color(LED_LIST_LETTERS_DE[i], RGB_CHARTREUSE);
+                }
             }
             rgb_matrix_set_color(LED_L7, RGB_CHARTREUSE);
             rgb_matrix_set_color(LED_L8, RGB_CHARTREUSE);
@@ -224,6 +231,7 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
             rgb_matrix_set_color(LED_LSFT, RGB_CHARTREUSE);
         }
     }
+
 
     // Winkey disabled (gaming) mode RGB setup
     if (keymap_config.no_gui) {

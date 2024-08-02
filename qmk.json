@@ -1,6 +1,6 @@
 {
     "userspace_version": "1.0",
     "build_targets": [
-        ["gmmk/pro/rev1/ansi", "gertz"]
+        ["gmmk/pro/rev1/iso", "gertz"]
     ]
 }
